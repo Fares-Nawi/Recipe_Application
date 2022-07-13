@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Vets</title>
+    <link href="" th:href="@{/CSS/index.css}" rel="stylesheet">
+</head>
+<body>
+
+<!-- /*@thymesVar id="vet" type="fares.springframework.sfgpetclinic.model.Owner"*/-->
+
+
+<h1 th:text="'List of Recipes'">List of Recipes....</h1>
+
+
+
+<table class="rwd-table">
+    <tr>
+        <th>ID</th>
+        <th>Recipe Name</th>
+        <th>Recipe Cost</th>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+
+
+        <td data-th="ID"th:text="${recipe.id}">1</td>
+        <td data-th="Recipe Name"th:text="${recipe.recipeName}">Joe</td>
+        <td data-th="Recipe Cost"th:text="${recipe.cost}">Buck</td>
+
+    </tr>
+
+</table>
+
+
+</body>
+</html>
