@@ -15,20 +15,25 @@ import java.util.Optional;
 @Controller
 public class IndexController {
 
+    private CategoryRepositories categoryRepositories;
+    private UnitOfMeasureRepositories unitOfMeasureRepositories;
 
 
-    private final RecipeService recipeService;
-
-    public IndexController(RecipeService recipeService) {
-
-        this.recipeService = recipeService;
+    public IndexController(CategoryRepositories categoryRepositories, UnitOfMeasureRepositories unitOfMeasureRepositories) {
+        this.categoryRepositories = categoryRepositories;
+        this.unitOfMeasureRepositories = unitOfMeasureRepositories;
     }
 
     @RequestMapping({"","/","/index"})
     public String getIndexPage(Model model){
 
-        model.addAttribute("recipes",recipeService.findAll());
+        Optional<Category> categoryOptional = categoryRepositories.findByDescription("American");
+        Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepositories.findByDescription("Cup");
 
+        //todo add ifPresent(Consumer) to avoid "NoSuchElementException" if the description not found
+
+        System.out.println("Cat Id is : "+categoryOptional.get().getId());
+        System.out.println("UOM Id is : "+unitOfMeasureOptional.get().getId());
 
 
         return "index";
