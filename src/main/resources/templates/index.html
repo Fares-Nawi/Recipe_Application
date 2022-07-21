@@ -18,13 +18,19 @@
     <tr>
         <th>ID</th>
         <th>Recipe Name</th>
-        <th>Recipe Cost</th>
+        <th>prepTime</th>
+        <th>cookTime</th>
+<!--        <th>ingredients</th>-->
     </tr>
     <tr th:each="recipe : ${recipes}">
 
 
         <td data-th="ID"th:text="${recipe.id}">1</td>
         <td data-th="Recipe Name"th:text="${recipe.description}">Joe</td>
+        <td th:text="${recipe.prepTime}">1</td>
+        <td th:text="${recipe.cookTime}">1</td>
+<!--        todo show List of Ingredients-->
+<!--        <td th:text="${recipe.getIngredients.description}">1</td>-->
 <!--        <td data-th="Recipe Cost"th:text="${recipe.cost}">Buck</td>-->
 
     </tr>
