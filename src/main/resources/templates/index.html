@@ -3,39 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>List of Vets</title>
-    <link href="" th:href="@{/CSS/index.css}" rel="stylesheet">
+<!--    <link href="" th:href="@{/CSS/index.css}" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <!-- /*@thymesVar id="vet" type="fares.springframework.sfgpetclinic.model.Owner"*/-->
 
 
-<h1 th:text="'List of Recipes'">List of Recipes....</h1>
+<!--<h1 th:text="'List of Recipes'">List of Recipes....</h1>-->
 
 
 
-<table class="rwd-table">
-    <tr>
-        <th>ID</th>
-        <th>Recipe Name</th>
-        <th>prepTime</th>
-        <th>cookTime</th>
-<!--        <th>ingredients</th>-->
-    </tr>
-    <tr th:each="recipe : ${recipes}">
+<!--<table class="rwd-table">-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Recipe Name</th>-->
+<!--        <th>prepTime</th>-->
+<!--        <th>cookTime</th>-->
+<!--&lt;!&ndash;        <th>ingredients</th>&ndash;&gt;-->
+<!--    </tr>-->
+<!--    <tr th:each="recipe : ${recipes}">-->
 
 
-        <td data-th="ID"th:text="${recipe.id}">1</td>
-        <td data-th="Recipe Name"th:text="${recipe.description}">Joe</td>
-        <td th:text="${recipe.prepTime}">1</td>
-        <td th:text="${recipe.cookTime}">1</td>
-<!--        todo show List of Ingredients-->
-<!--        <td th:text="${recipe.getIngredients.description}">1</td>-->
-<!--        <td data-th="Recipe Cost"th:text="${recipe.cost}">Buck</td>-->
+<!--        <td data-th="ID"th:text="${recipe.id}">1</td>-->
+<!--        <td data-th="Recipe Name"th:text="${recipe.description}">Joe</td>-->
+<!--        <td th:text="${recipe.prepTime}">1</td>-->
+<!--        <td th:text="${recipe.cookTime}">1</td>-->
+<!--&lt;!&ndash;        todo show List of Ingredients&ndash;&gt;-->
+<!--&lt;!&ndash;        <td th:text="${recipe.getIngredients.description}">1</td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <td data-th="Recipe Cost"th:text="${recipe.cost}">Buck</td>&ndash;&gt;-->
 
-    </tr>
+<!--    </tr>-->
 
-</table>
+<!--</table>-->
+<div class="container-fluid" style="margin-top 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">MY Recipes</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Recipe Name</th>
+                                <th>prepTime</th>
+                                <th>cookTime</th>
+                                <!--        <th>ingredients</th>-->
+                            </tr>
+                            </thead>
+
+                            <tr th:each="recipe : ${recipes}">
+
+
+                                <td th:text="${recipe.id}">1</td>
+                                <td th:text="${recipe.description}">Joe</td>
+                                <td th:text="${recipe.prepTime}">1</td>
+                                <td th:text="${recipe.cookTime}">1</td>
+                                <!--        todo show List of Ingredients-->
+                                <!--        <td th:text="${recipe.getIngredients.description}">1</td>-->
+                                <!--        <td data-th="Recipe Cost"th:text="${recipe.cost}">Buck</td>-->
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
 
 
 </body>
